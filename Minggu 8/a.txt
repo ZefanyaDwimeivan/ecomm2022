@@ -1,0 +1,235 @@
+Microsoft Windows [Version 10.0.19044.1586]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\DELL>cd..
+
+C:\Users>cd..
+
+C:\>cd xampp\cd mysql\cd bin
+The system cannot find the path specified.
+
+C:\>cd xampp
+
+C:\xampp>cd mysql
+
+C:\xampp\mysql>cd bin
+
+C:\xampp\mysql\bin>prompt A22.2020.02844-ZefanyaDwi>
+The syntax of the command is incorrect.
+
+C:\xampp\mysql\bin>-u root -p
+'-u' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\xampp\mysql\bin>-u root
+'-u' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 220
+Server version: 10.4.17-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> prompt A22.2020.02844-ZefanyaDwi>
+PROMPT set to 'A22.2020.02844-ZefanyaDwi>'
+A22.2020.02844-ZefanyaDwi>
+A22.2020.02844-ZefanyaDwi>show databases:
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':' at line 1
+A22.2020.02844-ZefanyaDwi>show databases;
++---------------------------------+
+| Database                        |
++---------------------------------+
+|  tugas_dti2020                  |
+| a222002823                      |
+| a22202002844_zefanyadwi         |
+| a22202002844_zefanyadwimeivan   |
+| a22_2020_02844_zefanyadwi       |
+| a22_2020_92844_zefanyadwimeivan |
+| bukutamu                        |
+| ci3_login                       |
+| db_berita                       |
+| db_orderentry                   |
+| db_pagination                   |
+| db_toko                         |
+| db_tokobuah02844                |
+| dbcoba                          |
+| dbcoba2                         |
+| dbmhs                           |
+| information_schema              |
+| latihan                         |
+| master_database2                |
+| mysql                           |
+| performance_schema              |
+| perpustakaan                    |
+| phpmyadmin                      |
+| pikmi                           |
+| spp                             |
+| sppsekolah                      |
+| superstore                      |
+| test                            |
+| tokobuahlatihan                 |
+| tokobuahtugas                   |
+| tu71                            |
+| tugas                           |
+| tugas2                          |
+| tugasgis                        |
+| tugass                          |
+| tugasstored                     |
+| uas                             |
+| umkmuts                         |
+| utsgis                          |
++---------------------------------+
+39 rows in set (0.001 sec)
+
+A22.2020.02844-ZefanyaDwi>use db_orderentry;
+Database changed
+A22.2020.02844-ZefanyaDwi>show tables;
++-------------------------+
+| Tables_in_db_orderentry |
++-------------------------+
+| produk                  |
++-------------------------+
+1 row in set (0.001 sec)
+
+A22.2020.02844-ZefanyaDwi>desc produk;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| prod_id    | varchar(10)  | NO   |     | NULL    |       |
+| vend_id    | char(4)      | NO   |     | NULL    |       |
+| prod_name  | varchar(25)  | NO   |     | NULL    |       |
+| prod_price | int(11)      | NO   |     | NULL    |       |
+| prod_desc  | varchar(255) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.008 sec)
+
+A22.2020.02844-ZefanyaDwi>create table produk_hapus;
+ERROR 1113 (42000): A table must have at least 1 column
+A22.2020.02844-ZefanyaDwi>create table produk_hapus
+    -> ;
+ERROR 1113 (42000): A table must have at least 1 column
+A22.2020.02844-ZefanyaDwi>drop table produk_hapus;
+ERROR 1051 (42S02): Unknown table 'db_orderentry.produk_hapus'
+A22.2020.02844-ZefanyaDwi>create table produk_hapus as select * from produk where 1=2;
+Query OK, 0 rows affected (0.036 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+A22.2020.02844-ZefanyaDwi>desc produk_hapus;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| prod_id    | varchar(10)  | NO   |     | NULL    |       |
+| vend_id    | char(4)      | NO   |     | NULL    |       |
+| prod_name  | varchar(25)  | NO   |     | NULL    |       |
+| prod_price | int(11)      | NO   |     | NULL    |       |
+| prod_desc  | varchar(255) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.014 sec)
+
+A22.2020.02844-ZefanyaDwi>alter table produk_hapus add (tgl_hapus date NULL, user varchar (30) NULL);
+Query OK, 0 rows affected (0.010 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+A22.2020.02844-ZefanyaDwi>desc produk_hapus;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| prod_id    | varchar(10)  | NO   |     | NULL    |       |
+| vend_id    | char(4)      | NO   |     | NULL    |       |
+| prod_name  | varchar(25)  | NO   |     | NULL    |       |
+| prod_price | int(11)      | NO   |     | NULL    |       |
+| prod_desc  | varchar(255) | YES  |     | NULL    |       |
+| tgl_hapus  | date         | YES  |     | NULL    |       |
+| user       | varchar(30)  | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+7 rows in set (0.008 sec)
+
+A22.2020.02844-ZefanyaDwi>create trigger hapus_barang after delete on produk for each row
+    -> begin
+    -> insert into produk_hapus set
+    -> prod_id = old.prod_id,
+    -> vend_id = old.vend_id,
+    -> prod_name = old.prod_name,
+    -> prod_price = old.prod_price,
+    -> prod_desc = old.prod.desc,
+    -> tgl_hapus = NOW(),
+    -> user = CURRENT_USER;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 10
+A22.2020.02844-ZefanyaDwi>create trigger hapus_barang after delete on produk for each row
+    -> begin
+    -> insert into produk_hapus set
+    -> prod_id = old.prod_id,
+    -> vend_id = old.vend_id,
+    -> prod_name = old.prod_name,
+    -> prod_price = old.prod_price,
+    -> prod_desc = old.prod.desc,
+    -> tgl_hapus = NOW(),
+    -> user = CURRENT_USER;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 10
+A22.2020.02844-ZefanyaDwi>create trigger hapus_barang after delete on produk for each row
+    -> begin
+    -> insert into produk_hapus set
+    -> prod_id = old.prod_id,
+    -> vend_id = old.vend_id,
+    -> prod_name = old.prod_name,
+    -> prod_price = old.prod_price,
+    -> prod_desc = old.prod_desc,
+    -> tgl_hapus = NOW(),
+    -> user = CURRENT_USER;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 10
+A22.2020.02844-ZefanyaDwi>create trigger hapus_barang after delete on produk for each row
+    -> begin
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 2
+A22.2020.02844-ZefanyaDwi>delimiter //
+A22.2020.02844-ZefanyaDwi>create trigger hapus_barang after delete on produk for each row
+    -> begin
+    -> ;
+    -> ;
+    -> end//
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ';
+;
+end' at line 3
+A22.2020.02844-ZefanyaDwi>create trigger hapus_barang after delete on produk for each row
+    -> begin
+    -> insert into produk_hapus set
+    -> prod_id = old.prod_id,
+    -> vend_id = old.vend_id,
+    -> prod_name = old.prod_name,
+    -> prod_price = old.prod_price,
+    -> prod_desc = old.prod_desc,
+    -> tgl_hapus = NOW(),
+    -> user = CURRENT_USER;
+    -> end //
+ERROR 1359 (HY000): Trigger 'db_orderentry.hapus_barang' already exists
+A22.2020.02844-ZefanyaDwi>create trigger hapus_barang after delete on produk for each row
+    -> begin
+    -> insert into produk_hapus set
+    -> prod_id = old.prod_id,
+    -> vend_id = old.vend_id,
+    -> prod_name = old.prod_name,
+    -> prod_price = old.prod_price,
+    -> prod_desc = old.prod_desc,
+    -> tgl_hapus = NOW(),
+    -> user = CURRENT_USER;
+    -> end //
+Query OK, 0 rows affected (0.008 sec)
+
+A22.2020.02844-ZefanyaDwi>delete from produk where prod_id='tnt2' //
+Query OK, 1 row affected (0.006 sec)
+
+A22.2020.02844-ZefanyaDwi>select * from produk_hapus //
++---------+---------+-----------+------------+-----------+------------+----------------+
+| prod_id | vend_id | prod_name | prod_price | prod_desc | tgl_hapus  | user           |
++---------+---------+-----------+------------+-----------+------------+----------------+
+| tnt2    | 102     | keyboard  |     150000 | NULL      | 2022-05-18 | root@localhost |
++---------+---------+-----------+------------+-----------+------------+----------------+
+1 row in set (0.000 sec)
+
+A22.2020.02844-ZefanyaDwi>
